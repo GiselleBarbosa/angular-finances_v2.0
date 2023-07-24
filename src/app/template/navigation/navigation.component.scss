@@ -2,6 +2,14 @@
   .header {
     z-index: 1;
     position: fixed;
+    display: flex;
+    justify-content: space-between;
+
+    & .icons {
+      cursor: pointer;
+      display: flex;
+      gap: 2rem;
+    }
   }
 
   .sidenav {
@@ -16,6 +24,7 @@
     & .title-content {
       display: flex;
       gap: 1rem;
+      cursor: pointer;
     }
   }
 
@@ -33,5 +42,14 @@
       min-height: 100%;
       z-index: 0;
     }
+  }
+
+  .icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    color: var(--text-color);
+    fill: currentColor;
   }
 }

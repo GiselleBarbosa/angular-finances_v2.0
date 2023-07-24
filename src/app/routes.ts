@@ -5,6 +5,7 @@ import { RegisterComponent } from './features/auth/register/register.component';
 import { HomeComponent } from './features/home/home.component';
 import { NotFoundPageComponent } from './features/not-found-page/not-found-page.component';
 import { UserPanelComponent } from './features/user-panel/user-panel.component';
+import { LogoutComponent } from './features/auth/logout/logout.component';
 
 export const home: Routes = [{ path: '', component: HomeComponent }];
 
@@ -13,6 +14,7 @@ export const admin: Routes = [
 ];
 
 export const auth: Routes = [
+  { path: 'auth/logout', component: LogoutComponent },
   { path: 'auth/login', component: LoginComponent },
   { path: 'auth/register', component: RegisterComponent },
 ];

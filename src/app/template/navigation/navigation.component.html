@@ -7,8 +7,11 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar routerLink="" color="primary" class="title-content">
-      <mat-icon>account_balance</mat-icon>
+    <mat-toolbar routerLink="/" color="primary" class="title-content">
+      <svg class="icon icon-account_balance">
+        <use xlink:href="./assets/svg/icons.svg#icon-account_balance"></use>
+      </svg>
+
       Finances</mat-toolbar
     >
 
@@ -29,7 +32,16 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span></span>
+
+      <div class="icons">
+        <svg class="icon" routerLink="auth/login">
+          <use xlink:href="./assets/svg/icons.svg#icon-enter"></use>
+        </svg>
+
+        <svg class="icon" routerLink="auth/logout">
+          <use xlink:href="./assets/svg/icons.svg#icon-exit"></use>
+        </svg>
+      </div>
     </mat-toolbar>
 
     <div class="router-outlet">
