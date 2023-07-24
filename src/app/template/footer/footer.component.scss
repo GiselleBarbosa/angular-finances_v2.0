@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-weight: 300;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.footer {
+  flex-shrink: 0;
+  width: 100%;
+}

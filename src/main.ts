@@ -10,5 +10,6 @@ bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(BrowserModule, AppRoutingModule),
     provideAnimations(),
+    provideAnimations(),
   ],
 }).catch((err) => console.error(err));

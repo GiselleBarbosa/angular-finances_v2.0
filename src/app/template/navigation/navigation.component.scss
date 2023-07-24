@@ -1,0 +1,37 @@
+.sidenav-container {
+  .header {
+    z-index: 1;
+    position: fixed;
+  }
+
+  .sidenav {
+    min-width: 10rem;
+    border: none;
+    background-color: var(--primary-color);
+
+    & .mat-icon {
+      color: var(--text-color);
+    }
+
+    & .title-content {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
+  p {
+    color: var(--text-color);
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .router-outlet {
+      padding: 5rem 2rem;
+      min-height: 100%;
+      z-index: 0;
+    }
+  }
+}

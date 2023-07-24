@@ -15,7 +15,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'admin',
+    path: '',
     loadChildren: () => import('./routes').then((mod) => mod.admin),
   },
 
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'user',
+    path: '',
     loadChildren: () => import('./routes').then((mod) => mod.user),
   },
 
