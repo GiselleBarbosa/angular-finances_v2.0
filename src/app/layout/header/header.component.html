@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <div class="container">
+    <a routerLink="/home" class="cursor-pointer">
+      <mat-icon class="text-light me-3">account_balance</mat-icon></a
+    >
+    <a routerLink="home" class="navbar-brand">Finances</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+
+      <form class="d-flex justify-content-center align-self-center gap-4 p-2">
+        <div>
+          <app-buttons (click)="onlogout()" [btnTxt]="btnlogout"></app-buttons>
+        </div>
+
+        <div>
+          <button
+            type="button"
+            class="btn btn-light btn-sm"
+            data-bs-toggle="modal"
+            data-bs-target="#janelaModal">
+            Login
+          </button>
+        </div>
+        <app-login-modal></app-login-modal>
+      </form>
+    </div>
+  </div>
+</nav>

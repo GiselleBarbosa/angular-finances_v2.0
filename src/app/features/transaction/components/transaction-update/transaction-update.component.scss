@@ -1,0 +1,13 @@
+.id {
+  max-width: 60px;
+}
+
+.bg-danger {
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .container {
+    height: 80vh;
+  }
+}
