@@ -1,0 +1,101 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 85%;
+  min-width: 100%;
+}
+
+// section card
+.cards {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.card {
+  width: 250px;
+  margin: 0 auto;
+}
+
+.incomes {
+  border: 0.5px solid #5cb178;
+  border-radius: 8px;
+}
+
+.expense {
+  border: 0.5px solid #e26651;
+  border-radius: 8px;
+}
+
+.total {
+  border: 0.5px solid #000000;
+  border-radius: 8px;
+}
+.balance {
+  font-size: 1.2rem;
+}
+
+// transaction form
+.itens {
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  gap: 10px;
+}
+
+#type {
+  border-radius: 5px;
+}
+
+.cadastro,
+.extrato {
+  font-size: 1.6em;
+}
+
+@media (max-width: 460px) {
+  .itens {
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 490px) {
+  .cards {
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .itens {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-group {
+    min-width: 100%;
+  }
+
+  .btn-item {
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid #d4d1d1;
+  }
+
+  .cards {
+    gap: 2rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+  .mat-card-title {
+    font-size: 1.2em;
+  }
+}
