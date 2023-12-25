@@ -13,24 +13,28 @@
 }
 
 .card {
-  width: 250px;
+  width: 200px;
   margin: 0 auto;
 }
 
 .incomes {
   border: 0.5px solid #5cb178;
   border-radius: 8px;
+  padding: 8px;
 }
 
 .expense {
   border: 0.5px solid #e26651;
   border-radius: 8px;
+  padding: 8px;
 }
 
 .total {
   border: 0.5px solid #000000;
   border-radius: 8px;
+  padding: 8px;
 }
+
 .balance {
   font-size: 1.2rem;
 }
@@ -57,6 +61,7 @@
     display: flex;
     flex-direction: column;
   }
+
   .card {
     width: 100%;
   }
@@ -68,6 +73,7 @@
     display: flex;
     flex-direction: column;
   }
+
   .card {
     width: 100%;
   }

@@ -13,7 +13,6 @@
       "role": "user"
     }
   ],
-
   "transactions": [
     {
       "name": "teste3",
@@ -32,6 +31,12 @@
       "value": 2000,
       "type": "entrada",
       "id": 5
+    },
+    {
+      "name": "Teste 2023",
+      "value": 5000,
+      "type": "saída",
+      "id": 6
     }
   ]
 }

@@ -1,7 +1,12 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
-import { FormBuilder } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
 import { TransactionService } from '../../services/transaction.service';
 import { Transactions } from 'src/app/core/models/transactions';
 import { pipe } from 'rxjs';
@@ -10,6 +15,15 @@ import { pipe } from 'rxjs';
   selector: 'app-transaction-update',
   templateUrl: './transaction-update.component.html',
   styleUrls: ['./transaction-update.component.scss'],
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatOptionModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+  ],
 })
 export class TransactionUpdateComponent implements OnInit {
   form = this.formBuilder.group({
@@ -23,11 +37,11 @@ export class TransactionUpdateComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private service: TransactionService,
+    private service: TransactionService
   ) {}
 
   ngOnInit() {
-    let transaction: Transactions = this.route.snapshot.data['transaction'];
+    let transaction: Transactions = this.route.snapshot.data['transactions'];
     this.form.patchValue({
       id: transaction.id,
       name: transaction.name,
@@ -46,7 +60,7 @@ export class TransactionUpdateComponent implements OnInit {
 
     this.service
       .update(id, transaction)
-      .subscribe(pipe((response) => (response = transaction)));
+      .subscribe(pipe(response => (response = transaction)));
 
     return this.onBack();
   }

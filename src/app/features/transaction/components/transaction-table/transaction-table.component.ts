@@ -1,14 +1,13 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { CurrencyPipe, NgClass, TitleCasePipe } from '@angular/common';
-import { take, takeUntil } from 'rxjs/operators';
+import { Subject, take } from 'rxjs';
 
 import { DialogMessageComponent } from 'src/app/shared/dialog-message/dialog-message.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { SharedDataService } from '../../services/shared-data.service';
-import { Subject } from 'rxjs';
 import { TransactionService } from '../../services/transaction.service';
 import { Transactions } from 'src/app/core/models/transactions';
 import { TypePipe } from 'src/app/core/pipes/transaction-type/type.pipe';
@@ -50,27 +49,27 @@ export class TransactionTableComponent implements OnInit {
     public dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute,
-    private sharedData: SharedDataService,
+    private sharedData: SharedDataService
   ) {}
 
   public ngOnInit() {
     this.service
       .getAll()
-      .pipe(take(1), takeUntil(this.unsubscribe$))
-      .subscribe((data) => {
+      .pipe(take(1))
+      .subscribe(data => {
         this.dataSource = data;
 
         /*igualando a variavel dentro deste metodo com a criada fora do constructor */
-        let subscribeValues = data.filter((data) => data.value);
+        let subscribeValues = data.filter(data => data.value);
 
         /*passando filtro no obj para obter apenas valores.*/
-        this.subscribeValues = subscribeValues.map((data) => data.value);
+        this.subscribeValues = subscribeValues.map(data => data.value);
 
         let valuesToCalculate = this.subscribeValues;
 
         let resultCalculate = valuesToCalculate.reduce(
           (acc, current) => acc + current,
-          0,
+          0
         );
 
         this.resultCalculate = resultCalculate;
