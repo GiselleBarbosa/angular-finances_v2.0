@@ -15,13 +15,11 @@
       class="form-control"
       placeholder="Digite seu nome"
       formControlName="name"
-      required
-    />
+      required />
 
     <div
       *ngIf="formulario.controls.name.dirty || formulario.controls.name.touched"
-      class="invalid-feedback"
-    >
+      class="invalid-feedback">
       Nome é obrigátorio. Deve ter no minímo 3 e no máximo 12 caracteres.
     </div>
   </div>
@@ -38,15 +36,13 @@
       class="form-control"
       placeholder="Digite seu email"
       formControlName="email"
-      required
-    />
+      required />
 
     <div
       *ngIf="
         formulario.controls.email.dirty || formulario.controls.email.touched
       "
-      class="invalid-feedback"
-    >
+      class="invalid-feedback">
       Verifique o email digitado.
     </div>
   </div>
@@ -63,16 +59,14 @@
       class="form-control"
       placeholder="Digite sua senha"
       formControlName="password"
-      required
-    />
+      required />
 
     <div
       *ngIf="
         formulario.controls.password.dirty ||
         formulario.controls.password.touched
       "
-      class="invalid-feedback"
-    >
+      class="invalid-feedback">
       A senha é obrigátoria. Deve ter no minímo 6 e no máximo 8 caracteres.
     </div>
   </div>
@@ -80,8 +74,7 @@
   <button
     [disabled]="!formulario.valid"
     type="submit"
-    class="form-group btn btn-danger btn-sm float-end"
-  >
+    class="form-group btn btn-danger btn-sm float-end cursor-pointer">
     Cadastrar
   </button>
 </form>

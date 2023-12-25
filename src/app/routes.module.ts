@@ -12,11 +12,6 @@ export const home: Routes = [
     title: 'Finances 2.0',
   },
 
-  {
-    path: 'home',
-    component: HomeComponent,
-    title: 'Finances 2.0',
-  },
 ];
 
 export const admin: Routes = [
@@ -45,7 +40,7 @@ export const notFoundPage: Routes = [
 
 export const transactions: Routes = [
   {
-    path: 'transactions',
+    path: '',
     component: TransactionComponent,
     title: 'Painel de transações',
   },

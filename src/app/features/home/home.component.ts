@@ -1,13 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { CommonModule } from '@angular/common';
-import { FormRegisterComponent } from './components/form-register/form-register.component';
+import { RegisterComponent } from '../auth/register/register.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [FormRegisterComponent],
+  imports: [RegisterComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })

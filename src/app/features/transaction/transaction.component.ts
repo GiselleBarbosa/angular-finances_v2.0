@@ -6,9 +6,11 @@ import {
   Validators,
 } from '@angular/forms';
 
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { NgIf } from '@angular/common';
 import { Observable } from 'rxjs';
@@ -32,6 +34,9 @@ import { Transactions } from 'src/app/core/models/transactions';
     MatSelectModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatIconModule,
+    MatInputModule,
+    MatButtonModule,
   ],
 })
 export class TransactionComponent implements OnInit {
@@ -51,12 +56,12 @@ export class TransactionComponent implements OnInit {
 
   constructor(
     private service: TransactionService,
-    private sharedData: SharedDataService,
+    private sharedData: SharedDataService
   ) {}
 
   ngOnInit() {
     /* usando service para se inscrever na variavel do componente irmao */
-    this.sharedData.values$.subscribe((values) => {
+    this.sharedData.values$.subscribe(values => {
       this.resultCalculate = values;
     });
   }
@@ -74,7 +79,7 @@ export class TransactionComponent implements OnInit {
     };
 
     if (this.form.valid || null || undefined) {
-      this.service.create(body).subscribe((response) => response);
+      this.service.create(body).subscribe(response => response);
       alert('Adicionado com sucesso!');
     } else {
       return alert('Verifique se os campos estão preenchidos corretamente.');

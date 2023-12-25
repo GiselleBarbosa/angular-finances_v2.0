@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './login-modal.component.html',
   styleUrls: ['./login-modal.component.scss'],
   standalone: true,
+  imports: [ReactiveFormsModule],
 })
 export class LoginModalComponent implements OnInit {
   constructor(private router: Router) {}
@@ -15,6 +17,6 @@ export class LoginModalComponent implements OnInit {
 
   onLogin() {
     console.log('login');
-    this.router.navigate(['transaction']);
+    this.router.navigate(['transactions']);
   }
 }
