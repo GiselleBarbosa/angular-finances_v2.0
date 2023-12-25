@@ -3,6 +3,7 @@ import { HomeComponent } from './features/home/home.component';
 import { NotFoundPageComponent } from './features/not-found-page/not-found-page.component';
 import { Routes } from '@angular/router';
 import { TransactionComponent } from './features/transaction/transaction.component';
+import { TransactionUpdateComponent } from './features/transaction/components/transaction-update/transaction-update.component';
 import { UserPanelComponent } from './features/user-panel/user-panel.component';
 
 export const home: Routes = [
@@ -11,7 +12,6 @@ export const home: Routes = [
     component: HomeComponent,
     title: 'Finances 2.0',
   },
-
 ];
 
 export const admin: Routes = [
@@ -42,6 +42,12 @@ export const transactions: Routes = [
   {
     path: '',
     component: TransactionComponent,
+    title: 'Painel de transações',
+  },
+
+  {
+    path: 'update/:id',
+    component: TransactionUpdateComponent,
     title: 'Painel de transações',
   },
 ];
