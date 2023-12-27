@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { NgIf } from '@angular/common';
 import { TransactionService } from '../../services/transaction.service';
 import { Transactions } from 'src/app/core/models/transactions';
 import { pipe } from 'rxjs';
@@ -23,6 +24,7 @@ import { pipe } from 'rxjs';
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
+    NgIf,
   ],
 })
 export class TransactionUpdateComponent implements OnInit {
