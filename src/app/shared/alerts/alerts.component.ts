@@ -1,8 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-alerts',
   templateUrl: './alerts.component.html',
@@ -10,11 +9,17 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   standalone: true,
   imports: [MatButtonModule, MatCardModule],
 })
-export class AlertsComponent implements OnInit {
-  title: string = 'Cadastrado realizado';
-  data: string = 'Usuário informado foi cadastrado com sucesso!';
+export class AlertsComponent {
+  constructor(
+    public dialogRef: MatDialogRef<AlertsComponent>,
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      title: string;
+      message: string;
+    }
+  ) {}
 
-  constructor(@Inject(MAT_DIALOG_DATA) public text: string) {}
-
-  ngOnInit(): void {}
+  close(): void {
+    this.dialogRef.close();
+  }
 }
