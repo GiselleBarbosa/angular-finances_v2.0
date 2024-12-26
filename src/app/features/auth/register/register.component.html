@@ -3,7 +3,7 @@
 <form class="form" [formGroup]="formulario" (ngSubmit)="onSubmit($event)">
   <div class="form-group">
     <label for="name">
-      <strong>Nome</strong>
+      <strong>Nome completo</strong>
     </label>
     <input
       [ngClass]="
@@ -13,14 +13,14 @@
       "
       type=" name"
       class="form-control"
-      placeholder="Digite seu nome"
+      placeholder="Informe o nome completo"
       formControlName="name"
       required />
 
     <div
       *ngIf="formulario.controls.name.dirty || formulario.controls.name.touched"
       class="invalid-feedback">
-      Nome é obrigátorio. Deve ter no minímo 3 e no máximo 12 caracteres.
+      Deve ter no minímo 3 e no máximo 12 caracteres.
     </div>
   </div>
 
@@ -34,7 +34,7 @@
       "
       type="email"
       class="form-control"
-      placeholder="Digite seu email"
+      placeholder="Informe o email"
       formControlName="email"
       required />
 
@@ -57,8 +57,9 @@
       "
       type="password"
       class="form-control"
-      placeholder="Digite sua senha"
+      placeholder="Crie uma senha"
       formControlName="password"
+      maxlength="8"
       required />
 
     <div
@@ -67,7 +68,7 @@
         formulario.controls.password.touched
       "
       class="invalid-feedback">
-      A senha é obrigátoria. Deve ter no minímo 6 e no máximo 8 caracteres.
+      Deve ter no minímo 6 e no máximo 8 caracteres.
     </div>
   </div>
 

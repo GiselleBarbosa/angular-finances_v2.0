@@ -35,41 +35,37 @@ export class RegisterComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.addClassValidate;
   }
 
-  /* catchInputValues() {
-       let name = this.formulario.controls.name.value;
-        let email = this.formulario.controls.email.value;
-        let password = this.formulario.controls.password.value; 
-    } */
-
-  onSubmit(e: Event) {
+  public onSubmit(e: Event) {
     if (this.formulario.valid) {
       e.preventDefault();
-      /* Exibindo alerta de cadastro feito com sucesso */
-      this.dialog.open(AlertsComponent);
+      this.dialog.open(AlertsComponent, {
+        data: {
+          title: 'Cadastro Realizado',
+          message: 'Usuário foi cadastrado com sucesso!',
+        },
+      });
       this.reset();
-    } else {
-      this.dialog.open(AlertsComponent);
-    }
+    } 
   }
 
   /* Resetando formulario apos envio */
-  reset() {
+  public reset() {
     this.formulario.reset();
   }
 
   /* Checando formulario  */
-  checkValidTouched(campo: string) {
+  public checkValidTouched(campo: string) {
     return (
       !this.formulario.get(campo)?.valid && this.formulario.get(campo)?.touched
     );
   }
 
   /* Adicionando class invalid no template*/
-  addClassValidate(campo: string) {
+  public addClassValidate(campo: string) {
     return {
       'is-invalid': this.checkValidTouched(campo),
     };
