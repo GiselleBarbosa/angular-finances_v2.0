@@ -1,80 +1,30 @@
 <h2>Cadastre-se para acessar</h2>
 
-<form class="form" [formGroup]="formulario" (ngSubmit)="onSubmit($event)">
-  <div class="form-group">
-    <label for="name">
-      <strong>Nome</strong>
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="form-group" *ngFor="let field of ['nome', 'email', 'senha']">
+    <label [for]="field">
+      <strong>{{ field | titlecase }}</strong>
     </label>
     <input
-      [ngClass]="
-        formulario.get('name')?.status === 'INVALID'
-          ? addClassValidate('name')
-          : 'is-valid'
-      "
-      type=" name"
+      [formControlName]="field"
+      [type]="field === 'senha' ? 'password' : 'text'"
       class="form-control"
-      placeholder="Digite seu nome"
-      formControlName="name"
-      required />
-
+      [ngClass]="{
+        'is-invalid':
+          formulario.get(field)?.invalid && formulario.get(field)?.touched
+      }"
+      [placeholder]="'Informe a ' + field" />
     <div
-      *ngIf="formulario.controls.name.dirty || formulario.controls.name.touched"
+      *ngIf="formulario.get(field)?.invalid && formulario.get(field)?.touched"
       class="invalid-feedback">
-      Nome é obrigátorio. Deve ter no minímo 3 e no máximo 12 caracteres.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="email"><strong>Endereço de email</strong></label>
-    <input
-      [ngClass]="
-        formulario.get('email')?.status === 'INVALID'
-          ? addClassValidate('email')
-          : 'is-valid'
-      "
-      type="email"
-      class="form-control"
-      placeholder="Digite seu email"
-      formControlName="email"
-      required />
-
-    <div
-      *ngIf="
-        formulario.controls.email.dirty || formulario.controls.email.touched
-      "
-      class="invalid-feedback">
-      Verifique o email digitado.
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="password"><strong>Senha</strong></label>
-    <input
-      [ngClass]="
-        formulario.get('password')?.status === 'INVALID'
-          ? addClassValidate('password')
-          : 'is-valid'
-      "
-      type="password"
-      class="form-control"
-      placeholder="Digite sua senha"
-      formControlName="password"
-      required />
-
-    <div
-      *ngIf="
-        formulario.controls.password.dirty ||
-        formulario.controls.password.touched
-      "
-      class="invalid-feedback">
-      A senha é obrigátoria. Deve ter no minímo 6 e no máximo 8 caracteres.
+      {{ getErrorMessage(field) }}
     </div>
   </div>
 
   <button
-    [disabled]="!formulario.valid"
+    [disabled]="formulario.invalid"
     type="submit"
-    class="form-group btn btn-danger btn-sm float-end cursor-pointer">
+    class="btn btn-primary float-end">
     Cadastrar
   </button>
 </form>
